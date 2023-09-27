@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/Main_Flow/movieScreen.dart';
 
-import 'mainScreen.dart';
+import 'Main_Flow/mainScreen.dart';
 
 void main() {
   runApp(const MyApp());
