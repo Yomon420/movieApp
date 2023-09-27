@@ -64,6 +64,14 @@ flutter:
     - assets/img.png
     - assets/img_1.png
     - assets/img_2.png
+    - assets/Action.jpeg
+    - assets/Drama.jpeg
+    - assets/Comedy.jpeg
+    - assets/Animation.jpeg
+    - assets/Fantasy.jpeg
+    - assets/Horror.jpeg
+    - assets/War.jpeg
+    - assets/Romance.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

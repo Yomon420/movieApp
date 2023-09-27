@@ -13,7 +13,7 @@ class CustomText extends StatelessWidget{
     return Text(text,
         textAlign:
         TextAlign.left,
-        style: GoogleFonts.aleo(
+        style: GoogleFonts.aBeeZee(
           color: color ?? Colors.black,
           fontSize: size ?? 24,
         ));
