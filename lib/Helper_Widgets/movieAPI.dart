@@ -16,11 +16,6 @@ class Api {
   int page;
 
   Future<dynamic> get({required String url}) async {
-    // final Map<String, String> headers = {
-    //   "accept": "application/json",
-    //   "Authorization":
-    //   "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MWEwOGViM2RiMGI2MjBhZGNhZjhhOGZlY2M1Yzg4MCIsInN1YiI6IjY1MGI3NjAzM2Q3NDU0MDBlMTIzNDgwZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HmB8GR1fK5qsZ_S_OviyjItvlxzmEXV6P35JI18tZ-0",
-    // };
     http.Response res = await http.get(Uri.parse(url));
 
     if (res.statusCode == 200) {
@@ -40,6 +35,7 @@ class Api {
       string.write("&with_genres=");
       for (int i = 0; i < withGenres!.length; i++) {
         string.write(genreIdMap[withGenres![i]]);
+        print("Genre: ${withGenres![i]}");
         if (i != withGenres!.length - 1) string.write(",");
         print(string.toString());
       }
@@ -78,6 +74,7 @@ class Api {
       }
     }
     String finalUrl = string.toString();
+    print("final url is: ${finalUrl}");
     return finalUrl;
   }
 }

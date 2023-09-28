@@ -21,7 +21,7 @@ class MovieSearchResults extends StatelessWidget {
             begin: Alignment.topLeft
           ),
         ),
-        child: ListView.builder(
+        child: movieResults == 0 ? Text("Not found") : ListView.builder(
           itemCount: movieResults.length,
             itemBuilder: (context, index) {
               return MovieCard(
