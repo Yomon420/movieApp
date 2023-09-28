@@ -6,7 +6,7 @@ class MovieCard extends StatelessWidget {
   final String releaseDate;
   final double voteAverage;
   final int voteCount;
-  final String posterPath; // New property for the movie poster path
+  final String? posterPath; // New property for the movie poster path (OPTIONAL FOR NOW)
 
   MovieCard({
     required this.title,
@@ -14,7 +14,7 @@ class MovieCard extends StatelessWidget {
     required this.releaseDate,
     required this.voteAverage,
     required this.voteCount,
-    required this.posterPath, // Initialize with the movie poster path
+    this.posterPath, // Initialize with the movie poster path
   });
 
   @override
@@ -27,7 +27,7 @@ class MovieCard extends StatelessWidget {
         children: [
           // Movie Poster
           Image.asset(
-            posterPath,
+            posterPath ?? 'assets/Comedy.jpeg', // OPTIONAL (FOR NOW)
             width: double.infinity,
             height: 200, // Adjust the height as needed
             fit: BoxFit.cover, // Maintain aspect ratio and cover the container
@@ -67,8 +67,9 @@ class MovieCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  overview,
+                  overview.length <= 320 ? overview : overview.substring(0,320) +"...", // Truncate string if its too long
                   style: const TextStyle(fontSize: 16),
+                  
                 ),
               ],
             ),

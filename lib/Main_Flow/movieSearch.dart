@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/Main_Flow/movieSearchResults.dart';
 
 import '../Helper_Widgets/movieFilters.dart';
+import '../classes/movieObject.dart';
 import '../components/Text.dart';
-
+import '../Helper_Widgets/movieAPI.dart';
 class MovieSearch extends StatefulWidget {
   MovieSearch({super.key});
   @override
@@ -42,7 +44,7 @@ class _MovieSearchState extends State<MovieSearch> {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -66,13 +68,28 @@ class _MovieSearchState extends State<MovieSearch> {
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue, shape: StadiumBorder()),
-                onPressed: () {
+                    backgroundColor: Colors.blue, shape: const StadiumBorder()),
+                onPressed: () async {
+                  // APPLY ALL THE FILTERS HERE
+                  var api = Api(
+                    // year: 2024, // THIS WILL SHOW ALL MOVIES BEFORE THIS YEAR
+                    withGenres: genres, // HERE IS MY GENRE FILTER!
+                    voteAverage: 7.0, // THIS WILL SHOW ALL MOVIES ABOVE THIS RATING
+                    // country: "US", // ONLY USE ALPHA 2 COUNTRY CODES
+                    runtimeChoice: "short", // RUNTIME FILTERS: "normal", "short", "long"
+                    page: 1, // Replace with the desired page number
+                  );
+                  // Here is where all the magic happens
+                  var url = api.CallMovieFilterApi();
+                  var json = await api.get(url: url);
+                  Movie movie = Movie.fromJson(json);
+                  List<MovieResult> movieResults = movie.results;
+
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    return Placeholder();
+                    return MovieSearchResults(movieResults: movieResults);
                   },));
                 },
-                child: CustomText(
+                child: const CustomText(
                   "Search",
                   size: 24,
                   color: Colors.white,

@@ -13,17 +13,17 @@ class MovieScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         child: Column(
           children: [
             Container(
                 alignment: Alignment.topLeft,
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                child: CustomText(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: const CustomText(
                   'Recommended 🤌🏻',
                   color: Colors.cyan,
                 )),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -37,17 +37,17 @@ class MovieScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Container(
                 alignment: Alignment.topLeft,
-                padding: EdgeInsets.symmetric(horizontal: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: CustomText(
                   "Trending 🔥",
                   color: Colors.purple[300],
                 )),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -61,18 +61,18 @@ class MovieScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
 
             Container(
                 alignment: Alignment.topLeft,
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                child: CustomText(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: const CustomText(
                   "Top Rated 🤩",
                   color: Colors.red,
                 )),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -86,7 +86,7 @@ class MovieScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
 
@@ -94,13 +94,13 @@ class MovieScreen extends StatelessWidget {
 
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue, shape: StadiumBorder()),
+                    backgroundColor: Colors.blue, shape: const StadiumBorder()),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                     return MovieSearch();
                   },));
                 },
-                child: CustomText(
+                child: const CustomText(
                   "Search",
                   size: 24,
                   color: Colors.white,
