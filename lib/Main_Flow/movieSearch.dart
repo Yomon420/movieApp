@@ -37,7 +37,7 @@ class _MovieSearchState extends State<MovieSearch> {
               child: ListView.builder(
                 itemCount: genres.length,
                 itemBuilder: (context, index) {
-                  return MovieFilter("assets/${genres[index]}.jpeg", genres[index]);
+                  return MovieFilter(imagePath: "assets/${genres[index]}.jpeg", genreName: genres[index],);
                 },
                 scrollDirection: Axis.horizontal,
               ),

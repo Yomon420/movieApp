@@ -3,13 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 import '../components/Text.dart';
 
 class MovieFilter extends StatelessWidget {
-  const MovieFilter(this.imagePath, this.genreName, {super.key});
+  const MovieFilter({super.key, required this.imagePath, required this.genreName});
   final String imagePath;
   final String genreName;
+
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: (){
+
+      },
       child: Container(
         decoration: BoxDecoration(
           color: Colors.green,
