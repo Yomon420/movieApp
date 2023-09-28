@@ -9,6 +9,7 @@ class MovieFilter extends StatelessWidget {
     required this.onTap,
     required this.isSelected, // Optional: Initialize isSelected flag
   });
+
   final String imagePath;
   final String genreName;
   final VoidCallback onTap;
