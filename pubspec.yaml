@@ -64,14 +64,22 @@ flutter:
     - assets/img.png
     - assets/img_1.png
     - assets/img_2.png
-    - assets/Action.jpeg
-    - assets/Drama.jpeg
-    - assets/Comedy.jpeg
-    - assets/Animation.jpeg
-    - assets/Fantasy.jpeg
-    - assets/Horror.jpeg
-    - assets/War.jpeg
-    - assets/Romance.jpeg
+    - assets/Action.png
+    - assets/Drama.png
+    - assets/Comedy.png
+    - assets/Animation.png
+    - assets/Fantasy.png
+    - assets/Horror.png
+    - assets/War.png
+    - assets/Romance.png
+    - assets/Action_selected.png
+    - assets/Drama_selected.png
+    - assets/Comedy_selected.png
+    - assets/Animation_selected.png
+    - assets/Fantasy_selected.png
+    - assets/Horror_selected.png
+    - assets/War_selected.png
+    - assets/Romance_selected.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
