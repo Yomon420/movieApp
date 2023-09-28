@@ -66,6 +66,7 @@ class _MovieSearchState extends State<MovieSearch> {
                 scrollDirection: Axis.horizontal,
               ),
             ),
+
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue, shape: const StadiumBorder()),
@@ -73,8 +74,8 @@ class _MovieSearchState extends State<MovieSearch> {
                   // APPLY ALL THE FILTERS HERE
                   var api = Api(
                     // year: 2024, // THIS WILL SHOW ALL MOVIES BEFORE THIS YEAR
-                    withGenres: genres, // HERE IS MY GENRE FILTER!
-                    voteAverage: 7.0, // THIS WILL SHOW ALL MOVIES ABOVE THIS RATING
+                    withGenres: selectedGenres, // HERE IS MY GENRE FILTER!
+                    voteAverage: 7, // THIS WILL SHOW ALL MOVIES ABOVE THIS RATING
                     // country: "US", // ONLY USE ALPHA 2 COUNTRY CODES
                     runtimeChoice: "short", // RUNTIME FILTERS: "normal", "short", "long"
                     page: 1, // Replace with the desired page number
