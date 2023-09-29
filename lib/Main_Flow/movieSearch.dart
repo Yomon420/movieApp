@@ -6,6 +6,7 @@ import '../Helper_Widgets/movieFilters.dart';
 import '../classes/movieObject.dart';
 import '../components/Text.dart';
 import '../Helper_Widgets/movieAPI.dart';
+
 class MovieSearch extends StatefulWidget {
   MovieSearch({super.key});
   @override
@@ -13,7 +14,6 @@ class MovieSearch extends StatefulWidget {
 }
 
 class _MovieSearchState extends State<MovieSearch> {
-
   // -------------------------------------------------------------
   List<String> selectedGenres = [];
   // Function to handle genre selection
@@ -26,13 +26,14 @@ class _MovieSearchState extends State<MovieSearch> {
       }
     });
   }
+
   // LIST OF GENRES FOR MANY PURPOSES, GET PICS FROM ASSETS, OUTPUT NAMES
   List<String> genres = [
     'Action',
     'Drama',
+    'Fantasy',
     'Comedy',
     'Animation',
-    'Fantasy',
     'Horror',
     'War',
     'Romance'
@@ -54,31 +55,31 @@ class _MovieSearchState extends State<MovieSearch> {
                 itemCount: genres.length,
                 itemBuilder: (context, index) {
                   return MovieFilter(
-                    imagePath: "assets/${genres[index]}.jpeg",
+                    imagePath: selectedGenres.contains(genres[index]) ? "assets/${genres[index]}_selected.png" : "assets/${genres[index]}.png",
                     genreName: genres[index],
                     onTap: () {
                       // Call the toggleGenreSelection function when the MovieFilter is tapped
                       toggleGenreSelection(genres[index]);
                     },
-                    isSelected: selectedGenres.contains(genres[index]), // Pass isSelected flag for ui changes (YOUNIS)
+                    isSelected: selectedGenres.contains(genres[
+                        index]), // Pass isSelected flag for ui changes (YOUNIS)
                   );
                 },
                 scrollDirection: Axis.horizontal,
               ),
             ),
-
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue, shape: const StadiumBorder()),
                 onPressed: () async {
                   // APPLY ALL THE FILTERS HERE
                   var api = Api(
-                    // year: 2024, // THIS WILL SHOW ALL MOVIES BEFORE THIS YEAR
-                    withGenres: selectedGenres, // HERE IS MY GENRE FILTER!
-                    voteAverage: 7, // THIS WILL SHOW ALL MOVIES ABOVE THIS RATING
-                    // country: "US", // ONLY USE ALPHA 2 COUNTRY CODES
-                    runtimeChoice: "short", // RUNTIME FILTERS: "normal", "short", "long"
-                    page: 1, // Replace with the desired page number
+                    year: 2020,
+                    withGenres: selectedGenres,
+                    voteAverage: 7,
+                    country: "US",
+                    runtimeChoice: "normal",
+                    page: 1,
                   );
                   // Here is where all the magic happens
                   var url = api.CallMovieFilterApi();
@@ -86,9 +87,11 @@ class _MovieSearchState extends State<MovieSearch> {
                   Movie movie = Movie.fromJson(json);
                   List<MovieResult> movieResults = movie.results;
 
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    return MovieSearchResults(movieResults: movieResults);
-                  },));
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) {
+                      return MovieSearchResults(movieResults: movieResults);
+                    },
+                  ));
                 },
                 child: const CustomText(
                   "Search",

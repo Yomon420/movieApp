@@ -45,11 +45,7 @@ class Api {
     if(year != null){
       string.write("&year=${year}");
     }
-    /*
-     double? voteAverage;
-  String? country;
-  int? runtime;
-     */
+
     if(voteAverage != null){
       string.write("&vote_average.gte=${voteAverage}");
     }

@@ -25,17 +25,8 @@ class MovieFilter extends StatelessWidget {
           color: Colors.green,
           border: Border.all(color: Colors.black, width: 2.0),
         ),
-        child: Column(
-          children: [
-            Flexible(
-              child: Image.asset(imagePath, fit: BoxFit.contain),
-            ),
-            Text(isSelected ? "${genreName} selected" : genreName, style: GoogleFonts.pacifico(
-              fontSize: 12,
-            ),)
-          ],
+        child: Image.asset(imagePath, fit: BoxFit.contain),
         ),
-      ),
-    );
+      );
   }
 }

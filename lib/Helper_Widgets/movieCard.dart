@@ -27,7 +27,7 @@ class MovieCard extends StatelessWidget {
         children: [
           // Movie Poster
           Image.asset(
-            posterPath ?? 'assets/Comedy.jpeg', // OPTIONAL (FOR NOW)
+            posterPath ?? 'assets/Comedy.png', // OPTIONAL (FOR NOW)
             width: double.infinity,
             height: 200, // Adjust the height as needed
             fit: BoxFit.cover, // Maintain aspect ratio and cover the container
@@ -67,7 +67,7 @@ class MovieCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  overview.length <= 320 ? overview : overview.substring(0,320) +"...", // Truncate string if its too long
+                  overview.length <= 350 ? overview : overview.substring(0,350) +"...", // Truncate string if its too long
                   style: const TextStyle(fontSize: 16),
                   
                 ),
