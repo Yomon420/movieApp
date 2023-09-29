@@ -66,7 +66,7 @@ class _MovieSearchState extends State<MovieSearch> {
                 scrollDirection: Axis.horizontal,
               ),
             ),
-
+            SizedBox(height: 100,),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue, shape: const StadiumBorder()),
