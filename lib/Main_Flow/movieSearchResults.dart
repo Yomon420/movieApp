@@ -10,7 +10,7 @@ class MovieSearchResults extends StatelessWidget {
   final List<MovieResult> movieResults;
   @override
   Widget build(BuildContext context) {
-
+    print(movieResults.length);
     return Scaffold(
       appBar: AppBar(),
       body: Container(
@@ -21,7 +21,7 @@ class MovieSearchResults extends StatelessWidget {
             begin: Alignment.topLeft
           ),
         ),
-        child: movieResults == 0 ? Text("Not found") : ListView.builder(
+        child: ListView.builder(
           itemCount: movieResults.length,
             itemBuilder: (context, index) {
               return MovieCard(

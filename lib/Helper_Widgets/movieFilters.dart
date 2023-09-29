@@ -3,17 +3,18 @@ import 'package:google_fonts/google_fonts.dart';
 import '../components/Text.dart';
 import 'package:movie_app/Main_Flow/movieSearch.dart';
 class MovieFilter extends StatelessWidget {
-  const MovieFilter({super.key,
+  MovieFilter({super.key,
     required this.imagePath,
-    required this.genreName,
+    this.genreName,
     required this.onTap,
-    required this.isSelected, // Optional: Initialize isSelected flag
+    this.isSelected,
+    // Optional: Initialize isSelected flag
   });
 
   final String imagePath;
-  final String genreName;
+  final String? genreName;
   final VoidCallback onTap;
-  final bool isSelected;
+  bool? isSelected;
 
 
   @override
@@ -22,20 +23,14 @@ class MovieFilter extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.green,
-          border: Border.all(color: Colors.black, width: 2.0),
+
+          border: Border.all(
+              color: isSelected! ? Colors.green : Colors.transparent,
+              width: 5.0
+          ),
         ),
-        child: Column(
-          children: [
-            Flexible(
-              child: Image.asset(imagePath, fit: BoxFit.contain),
-            ),
-            Text(isSelected ? "${genreName} selected" : genreName, style: GoogleFonts.pacifico(
-              fontSize: 12,
-            ),)
-          ],
+        child: Image.asset(imagePath, fit: BoxFit.contain),
         ),
-      ),
-    );
+      );
   }
 }

@@ -5,9 +5,17 @@ import 'package:http/http.dart' as http;
 import '../constants.dart';
 
 class Api {
-  Api({this.year, this.withGenres, this.voteAverage, this.country,
-    this.runtimeChoice, required this.page});
+  Api({
+    this.year,
+    this.withGenres,
+    this.voteAverage,
+    this.country,
+    this.runtimeChoice,
+    this.language,
+    required this.page
+  });
 
+  String? language;
   int? year;
   List<String>? withGenres;
   double? voteAverage;
@@ -31,6 +39,10 @@ class Api {
     string.write(
         "https://api.themoviedb.org/3/discover/movie?api_key=81a08eb3db0b620adcaf8a8fecc5c880&include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc");
 
+    if(language != null){
+      string.write("&with_original_language=$language");
+    }
+
     if (withGenres != null) {
       string.write("&with_genres=");
       for (int i = 0; i < withGenres!.length; i++) {
@@ -45,19 +57,15 @@ class Api {
     if(year != null){
       string.write("&year=${year}");
     }
-    /*
-     double? voteAverage;
-  String? country;
-  int? runtime;
-     */
+
     if(voteAverage != null){
       string.write("&vote_average.gte=${voteAverage}");
     }
 
     // ONLY PASS COUNTRY CODES PLEASE (ALPHA 2) https://www.iban.com/country-codes
-    if(country != null){
-      string.write("&with_origin_country=${country}");
-    }
+    // if(country != null){
+    //   string.write("&with_origin_country=${country}");
+    // }
 
     if(runtimeChoice != null) {
       if (runtimeChoice == "short") {
